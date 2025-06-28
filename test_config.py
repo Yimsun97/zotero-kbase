@@ -8,7 +8,7 @@ settings defined in config.py.
 import os
 from config import (
     ZOTERO_DATA_DIR, ZOTERO_DB_PATH, 
-    MINERU_CONFIG_DIR, MAGIC_PDF_CONFIG_FILENAME,
+    MINERU_DIR, MAGIC_PDF_CONFIG_FILENAME,
     DEFAULT_ENCODING, STORAGE_DIR_NAME
 )
 
@@ -27,7 +27,7 @@ def validate_paths():
     validation_results['zotero_storage_dir'] = os.path.exists(os.path.join(ZOTERO_DATA_DIR, STORAGE_DIR_NAME))
 
     # Check MinerU config file
-    validation_results['mineru_config_file'] = os.path.exists(os.path.join(MINERU_CONFIG_DIR, MAGIC_PDF_CONFIG_FILENAME))
+    validation_results['mineru_config_file'] = os.path.exists(os.path.join(MINERU_DIR, MAGIC_PDF_CONFIG_FILENAME))
     
     return validation_results
 
@@ -38,7 +38,7 @@ def print_config_summary():
     print("=" * 80)
     print(f"Zotero Data Directory: {ZOTERO_DATA_DIR}")
     print(f"Zotero Database: {ZOTERO_DB_PATH}")
-    print(f"MinerU Config Directory: {MINERU_CONFIG_DIR}")
+    print(f"MinerU Config Directory: {MINERU_DIR}")
     print(f"Default Encoding: {DEFAULT_ENCODING}")
     print()
     

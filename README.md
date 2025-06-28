@@ -11,26 +11,18 @@ A comprehensive Python toolkit for extracting, converting, and managing your Zot
 - **📁 Organized Output**: Structured output with images, metadata, and annotations in separate directories
 - **🛠️ Configurable**: Easy configuration management for different Zotero installations
 
-## 📋 Requirements
-
-### Python Dependencies
-```bash
-pip install pandas pypdf pathlib
-```
-
-### External Tools
-- **MinerU**: Required for PDF to markdown conversion
-  - Install from: [MinerU GitHub](https://github.com/opendatalab/MinerU)
-  - Configure `magic-pdf.json` configuration file
-
-### System Requirements
-- Python 3.7+
-- Zotero database access (zotero.sqlite)
-- Windows/Linux/macOS compatible
-
 ## ⚙️ Configuration
 
-### 1. Update Configuration File
+### 1. Install zotero-kbase and MinerU dependencies
+```bash
+conda create -n zkbase 'python=3.12' -y
+conda activate zkbase
+git clone https://github.com/Yimsun97/zotero-kbase.git
+cd zotero-kbase
+pip install -r requirements.txt
+```
+
+### 2. Update Configuration File
 
 Edit `config.py` to match your system:
 
@@ -41,11 +33,18 @@ ZOTERO_DATA_DIR = <path_to_zotero_data_dir>
 # Zotero database file
 ZOTERO_DB_PATH = <path_to_zotero_db> (usually <path_to_zotero_data_dir>/zotero.sqlite)
 
-# MinerU configuration directory
-MINERU_CONFIG_DIR = <path_to_mineru_config_dir>
+# MinerU directory
+MINERU_DIR = <path_to_mineru_dir> (please ensure the directory exists)
 ```
 
-### 2. Test Configuration
+### 3. Download External Models
+Ensure you have the necessary models for PDF processing:
+
+```bash
+python download_models_hf.py
+```
+
+### 4. Test Configuration
 
 ```bash
 python test_config.py
@@ -162,7 +161,7 @@ python extract_zotero_annotations.py
 python convert_annotations.py
 
 # 4. Convert PDFs to markdown (with limits)
-python convert_pdf_to_md.py
+python convert_pdf_files.py
 ```
 
 ### Research Paper Analysis
@@ -189,7 +188,7 @@ convert_single_annotation_by_id(95, "output_directory")
 
 ```python
 # Convert only PDFs within page limits
-from convert_pdf_to_md import convert_multiple_pdfs_to_md
+from convert_pdf_files import convert_multiple_pdfs_to_md
 import pandas as pd
 
 metadata = pd.read_csv("zotero_metadata.csv")
@@ -208,10 +207,19 @@ results = convert_multiple_pdfs_to_md(
 
 ## 🚀 Quick Start
 
-1. **Configure your paths** in `config.py`
-2. **Test your configuration**: `python test_config.py`
-3. **Run the complete conversion**: `run_converter.bat` (Windows) or `./run_converter.sh` (Linux/macOS)
-4. **Check your output** in the generated directories
+1. **Create a conda or virtual environment** and install dependencies
+   ```bash
+   conda create -n zkbase 'python=3.12' -y
+   conda activate zkbase
+   git clone https://github.com/Yimsun97/zotero-kbase.git
+   cd zotero-kbase
+   pip install -r requirements.txt
+   ```
+2. **Configure your paths** in `config.py`
+3. **Download necessary models**: `python download_models_hf.py`
+4. **Test your configuration**: `python test_config.py`
+5. **Run the complete conversion**: `run_converter.bat` (Windows) or `./run_converter.sh` (Linux/macOS)
+6. **Check your output** in the generated directories
 
 ## 📁 Output Structure
 

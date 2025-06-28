@@ -4,7 +4,7 @@ import pandas as pd
 from typing import List, Optional
 from pypdf import PdfReader
 from config import (
-    MINERU_CONFIG_DIR,
+    MINERU_DIR,
     MAGIC_PDF_CONFIG_FILENAME,
     IMAGES_DIR_NAME, 
     METADATA_CSV_FILENAME, 
@@ -21,7 +21,7 @@ IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.bmp')
 
 def get_mineru_config_path():
     """Get the full path to the MinerU magic-pdf.json configuration file."""
-    return os.path.join(MINERU_CONFIG_DIR, MAGIC_PDF_CONFIG_FILENAME)
+    return os.path.join(MINERU_DIR, MAGIC_PDF_CONFIG_FILENAME)
 
 def create_images_dir(base_dir):
     """Create images directory within a base directory."""
