@@ -3,3 +3,4 @@ zotero_metadata.csv
 zotero_annotations.csv
 fulltexts/
 annotations/
+config.py

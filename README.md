@@ -20,6 +20,7 @@ conda activate zkbase
 git clone https://github.com/Yimsun97/zotero-kbase.git
 cd zotero-kbase
 pip install -r requirements.txt
+cp config-template.py config.py
 ```
 
 ### 2. Update Configuration File

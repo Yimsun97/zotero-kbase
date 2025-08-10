@@ -19,7 +19,7 @@ ZOTERO_DB_PATH = "D:\\AppData\\ZoteroData\\zotero.sqlite"
 STORAGE_DIR_NAME = "storage"
 
 # MinerU configuration directory
-MINERU_DIR = "D:\\Appdata\\OneDrive\\Files\Coding\\Python\\mineru"
+MINERU_DIR = "D:\\Files\\Coding\\Python\\mineru"
 
 # Magic PDF configuration filename
 MAGIC_PDF_CONFIG_FILENAME = "magic-pdf.json"
